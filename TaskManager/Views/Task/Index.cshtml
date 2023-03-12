@@ -1,0 +1,19 @@
+﻿@model TodoViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col">
+        <h2>Tareas</h2>
+    </div>
+    <div class="col">
+        <div class="row justify-content-end">
+            <a asp-controller="Task" asp-action="Create" style="width: fit-content">
+                <button class="btn btn-primary" type="button" style="width: fit-content">Crear Tarea</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<partial model="@Model.Todos"  name="_TodoList"  />

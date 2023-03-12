@@ -1,0 +1,26 @@
+﻿@model Todo
+
+<div class="row   justify-content-center ">
+    <div class="w-50">
+        <h2 class="text-center"> @ViewData["Text"]  Tarea</h2>
+        <form method="post" asp-action="@ViewData["Action"]" class="row align-self-center">
+            <div class="row">
+                <label for="Title" class="form-range">Título</label>
+                <input class="form-control" asp-for="Title" type="text">
+            </div>
+
+            <div class="row">
+                <label class="form-range" for="Description">Descripción</label>
+                <input class="form-control" asp-for="Description" type="text">
+            </div>
+
+            <div class="row">
+                <label class="form-range" for="EndDate">Fecha de Vencimiento</label>
+                <input asp-for="EndDate" class="form-control" type="datetime-local">
+            </div>
+            <div class="row  mt-3">
+                <button class="btn btn-primary" type="submit">@ViewData["Text"]</button>
+            </div>
+        </form>
+    </div>
+</div>
