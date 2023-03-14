@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\5700g\\Desktop\\clases\\POO\\TaskManager\\TaskManager\\wwwroot\\imgs\\taskIcon.gif",
+      "PackagePath": "staticwebassets\\imgs\\taskIcon.gif"
+    },
+    {
       "Id": "C:\\Users\\5700g\\Desktop\\clases\\POO\\TaskManager\\TaskManager\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -36,6 +36,8 @@ namespace TaskManager.Controllers
         [HttpPost]
         public IActionResult Create(Todo todo)
         {
+            if (!ModelState.IsValid) return View("CreateForm", todo);
+            
             _repositoryTask.AddTodo(todo);
             return RedirectToAction("Index");
         }
@@ -44,13 +46,15 @@ namespace TaskManager.Controllers
         public IActionResult Update(Guid Id)
         {
             var todo = _repositoryTask.GetById(Id);
-
+            Console.WriteLine(todo.EndDate);
             return View("UpdateForm", todo);
         }
 
         [HttpPost]
         public IActionResult Update(Todo todo)
         {
+            if (!ModelState.IsValid) return View("UpdateForm", todo);
+            
             _repositoryTask.UpdateTodo(todo);
             return RedirectToAction("Index");
         }

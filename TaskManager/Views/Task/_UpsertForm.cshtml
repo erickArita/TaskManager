@@ -2,21 +2,31 @@
 
 <div class="row   justify-content-center ">
     <div class="w-50">
-        <h2 class="text-center"> @ViewData["Text"]  Tarea</h2>
+        <h2 class="text-center"> @ViewData["Text"] Tarea</h2>
         <form method="post" asp-action="@ViewData["Action"]" class="row align-self-center">
+            @Html.AntiForgeryToken()
             <div class="row">
-                <label for="Title" class="form-range">Título</label>
+                <label for="Title" class="form-label">Título</label>
                 <input class="form-control" asp-for="Title" type="text">
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
 
             <div class="row">
-                <label class="form-range" for="Description">Descripción</label>
-                <input class="form-control" asp-for="Description" type="text">
+                <label class="form-label" for="Description">Descripción</label>
+                <textarea class="form-control" asp-for="Description" type="text"></textarea>
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
             </div>
 
             <div class="row">
-                <label class="form-range" for="EndDate">Fecha de Vencimiento</label>
+                <label class="form-label" for="EndDate">Fecha de Vencimiento</label>
                 <input asp-for="EndDate" class="form-control" type="datetime-local">
+
+                @if (@Html.ViewContext.ModelState["EndDate"]?.Errors.FirstOrDefault().ErrorMessage != null)
+                {
+                    @Html.ValidationMessageFor(model => model.EndDate, "La fecha ingresada no es válida", new { @class = "text-danger" })
+                }
+
             </div>
             <div class="row  mt-3">
                 <button class="btn btn-primary" type="submit">@ViewData["Text"]</button>
